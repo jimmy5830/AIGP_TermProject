@@ -1,0 +1,62 @@
+# Core ML-Agents
+mlagents==1.1.0
+mlagents-envs==1.1.0
+setuptools==80.9.0
+
+# Numeric / ML / ONNX export
+numpy==1.23.5
+protobuf==3.20.3
+torch==2.8.0
+onnx==1.15.0
+
+# ML-Agents runtime dependencies
+PyYAML==6.0.3
+grpcio==1.48.2
+cloudpickle==3.1.2
+h5py==3.16.0
+pillow==12.2.0
+tqdm==4.67.3
+attrs==26.1.0
+cattrs==1.5.0
+gym==0.26.2
+gym-notices==0.1.0
+PettingZoo==1.15.0
+
+# Torch dependencies
+filelock==3.29.0
+fsspec==2026.4.0
+Jinja2==3.1.6
+MarkupSafe==3.0.3
+networkx==3.4.2
+sympy==1.14.0
+mpmath==1.3.0
+typing_extensions==4.15.0
+
+# TensorBoard / logging
+tensorboard==2.20.0
+tensorboard-data-server==0.7.2
+absl-py==2.4.0
+Markdown==3.10.2
+Werkzeug==3.1.8
+
+# CLI / packaging utilities used by dependencies
+packaging==25.0
+colorama==0.4.6
+click==8.3.3
+rich==15.0.0
+markdown-it-py==4.1.0
+mdurl==0.1.2
+typer==0.25.1
+shellingham==1.5.4
+annotated-doc==0.0.4
+
+# Hugging Face utilities pulled by ML-Agents ecosystem
+huggingface_hub==1.14.0
+hf-xet==1.5.0
+httpx==0.28.1
+httpcore==1.0.9
+h11==0.16.0
+anyio==4.13.0
+idna==3.13
+certifi==2026.4.22
+exceptiongroup==1.3.0

@@ -1,0 +1,15 @@
+# Unity generated folders
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+Logs/
+UserSettings/
+
+# Unity meta files (선택 — 보통은 추적함)
+# *.meta
+
+# OS
+.DS_Store
+Thumbs.db
