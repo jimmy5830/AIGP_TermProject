@@ -44,8 +44,8 @@
     <Analyzer Include="D:\Unity\Installs\6000.0.39f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="D:\Unity\Installs\6000.0.39f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
     <Analyzer Include="D:\Unity\Installs\6000.0.39f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
-    <Analyzer Include="D:\AIGP_TermProject_Template\Library\PackageCache\com.unity.dt.app-ui@3bbd9e4c5c92\Runtime\SourceGenerators\netstandard2.0\EnumToLowerCase.dll" />
-    <Analyzer Include="D:\AIGP_TermProject_Template\Library\PackageCache\com.unity.ai.inference@9a123aee5df7\Runtime\Core\SourceGenerator\SourceGenerators.dll" />
+    <Analyzer Include="D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\PackageCache\com.unity.dt.app-ui@3bbd9e4c5c92\Runtime\SourceGenerators\netstandard2.0\EnumToLowerCase.dll" />
+    <Analyzer Include="D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\PackageCache\com.unity.ai.inference@9a123aee5df7\Runtime\Core\SourceGenerator\SourceGenerators.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Core\CombatActionController.cs" />
@@ -418,31 +418,31 @@
       <HintPath>D:\Unity\Installs\6000.0.39f1\Editor\Data\Managed\UnityEngine\UnityEditor.XRModule.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.Abstractions">
-      <HintPath>D:\AIGP_TermProject_Template\Library\PackageCache\com.unity.ml-agents@f1016d3568fd\Plugins\System.IO.Abstractions.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\PackageCache\com.unity.ml-agents@f1016d3568fd\Plugins\System.IO.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Collections.LowLevel.ILSupport">
-      <HintPath>D:\AIGP_TermProject_Template\Library\PackageCache\com.unity.collections@56bff8827a7e\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\PackageCache\com.unity.collections@56bff8827a7e\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>D:\AIGP_TermProject_Template\Library\PackageCache\com.unity.ext.nunit@60ef35ffd3cd\net40\unity-custom\nunit.framework.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\PackageCache\com.unity.ext.nunit@60ef35ffd3cd\net40\unity-custom\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="Google.Protobuf_Packed">
-      <HintPath>D:\AIGP_TermProject_Template\Library\PackageCache\com.unity.ml-agents@f1016d3568fd\Plugins\Google.Protobuf_Packed.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\PackageCache\com.unity.ml-agents@f1016d3568fd\Plugins\Google.Protobuf_Packed.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-      <HintPath>D:\AIGP_TermProject_Template\Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\PackageCache\com.unity.visualscripting@1b53f46e931b\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Grpc.Core">
-      <HintPath>D:\AIGP_TermProject_Template\Library\PackageCache\com.unity.ml-agents@f1016d3568fd\Plugins\ProtoBuffer\Grpc.Core.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\PackageCache\com.unity.ml-agents@f1016d3568fd\Plugins\ProtoBuffer\Grpc.Core.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>D:\AIGP_TermProject_Template\Library\PackageCache\com.unity.nuget.newtonsoft-json@74deb55db2a0\Runtime\Newtonsoft.Json.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\PackageCache\com.unity.nuget.newtonsoft-json@74deb55db2a0\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Cecil">
-      <HintPath>D:\AIGP_TermProject_Template\Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.Abstractions.TestingHelpers">
-      <HintPath>D:\AIGP_TermProject_Template\Library\PackageCache\com.unity.ml-agents@f1016d3568fd\Plugins\System.IO.Abstractions.TestingHelpers.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\PackageCache\com.unity.ml-agents@f1016d3568fd\Plugins\System.IO.Abstractions.TestingHelpers.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>D:\Unity\Installs\6000.0.39f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
@@ -811,196 +811,196 @@
       <HintPath>D:\Unity\Installs\6000.0.39f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InputSystem.ForUI">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ML-Agents.CommunicatorObjects">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.ML-Agents.CommunicatorObjects.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.ML-Agents.CommunicatorObjects.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Searcher.Editor">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AppUI.Navigation.Editor">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.AppUI.Navigation.Editor.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.AppUI.Navigation.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AI.Navigation">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InferenceEngine">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.InferenceEngine.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.InferenceEngine.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InferenceEngine.iOSBLAS">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.InferenceEngine.iOSBLAS.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.InferenceEngine.iOSBLAS.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime.Shared">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.Shared.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.Shared.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ShaderGraph.Editor">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor.Shared">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.Shared.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.Shared.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Multiplayer.Center.Editor">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Multiplayer.Center.Editor.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Multiplayer.Center.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ML-Agents">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.ML-Agents.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.ML-Agents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.GPUDriven.Runtime">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.RenderPipelines.GPUDriven.Runtime.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.RenderPipelines.GPUDriven.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InferenceEngine.Editor">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.InferenceEngine.Editor.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.InferenceEngine.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AppUI.Redux">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.AppUI.Redux.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.AppUI.Redux.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Collections">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
     </Reference>
     <Reference Include="PPv2URPConverters">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\PPv2URPConverters.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\PPv2URPConverters.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rendering.LightTransport.Editor">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Rendering.LightTransport.Editor.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Rendering.LightTransport.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ML-Agents.Editor.Input">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.ML-Agents.Editor.Input.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.ML-Agents.Editor.Input.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Config.Runtime">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Config.Runtime.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Config.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Editor">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AppUI">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.AppUI.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.AppUI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Collections.Editor">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Collections.Editor.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Collections.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Shared.Editor">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core.Editor">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Multiplayer.Center.Common">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Multiplayer.Center.Common.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Multiplayer.Center.Common.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AI.Navigation.Updater">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.AI.Navigation.Updater.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.AI.Navigation.Updater.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InferenceEngine.Tokenization">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.InferenceEngine.Tokenization.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.InferenceEngine.Tokenization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow.Editor">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AppUI.Editor">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.AppUI.Editor.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.AppUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ML-Agents.Input">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.ML-Agents.Input.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.ML-Agents.Input.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InferenceEngine.MacBLAS">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.InferenceEngine.MacBLAS.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.InferenceEngine.MacBLAS.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AI.Navigation.Editor">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ML-Agents.Editor">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.ML-Agents.Editor.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.ML-Agents.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Editor">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InferenceEngine.ONNX.Editor">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.InferenceEngine.ONNX.Editor.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.InferenceEngine.ONNX.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rendering.LightTransport.Runtime">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Rendering.LightTransport.Runtime.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.Rendering.LightTransport.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InputSystem">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.2D.Runtime">
-      <HintPath>D:\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.2D.Runtime.dll</HintPath>
+      <HintPath>D:\GitHub\AIGP_TermProject\AIGP_TermProject_Template\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.2D.Runtime.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
