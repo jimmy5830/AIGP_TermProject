@@ -17,6 +17,13 @@ Thumbs.db
 # venv
 venv310
 
-# visual sutido 관련 제외 
+# visual stuido 관련 제외 
 *.sln
 .vs/
+*.csproj
+*.unityproj
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
