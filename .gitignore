@@ -8,7 +8,7 @@ Logs/
 UserSettings/
 
 # Unity meta files (선택 — 보통은 추적함)
-# *.meta
+*.meta
 
 # OS
 .DS_Store
@@ -16,3 +16,7 @@ Thumbs.db
 
 # venv
 venv310
+
+# visual sutido 관련 제외 
+*.sln
+.vs/
