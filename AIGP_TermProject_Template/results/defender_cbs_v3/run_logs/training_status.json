@@ -1,0 +1,65 @@
+{
+    "CombatAgent": {
+        "checkpoints": [
+            {
+                "steps": 49970,
+                "file_path": "results\\defender_cbs_v3\\CombatAgent\\CombatAgent-49970.onnx",
+                "reward": -53.63659715652466,
+                "creation_time": 1780364636.5505347,
+                "auxillary_file_paths": [
+                    "results\\defender_cbs_v3\\CombatAgent\\CombatAgent-49970.pt"
+                ]
+            },
+            {
+                "steps": 68723,
+                "file_path": "results\\defender_cbs_v3\\CombatAgent\\CombatAgent-68723.onnx",
+                "reward": -59.938996275266014,
+                "creation_time": 1780365109.634483,
+                "auxillary_file_paths": [
+                    "results\\defender_cbs_v3\\CombatAgent\\CombatAgent-68723.pt"
+                ]
+            },
+            {
+                "steps": 99974,
+                "file_path": "results\\defender_cbs_v3\\CombatAgent\\CombatAgent-99974.onnx",
+                "reward": null,
+                "creation_time": 1780365828.6193762,
+                "auxillary_file_paths": [
+                    "results\\defender_cbs_v3\\CombatAgent\\CombatAgent-99974.pt"
+                ]
+            },
+            {
+                "steps": 149998,
+                "file_path": "results\\defender_cbs_v3\\CombatAgent\\CombatAgent-149998.onnx",
+                "reward": -49.828797340393066,
+                "creation_time": 1780366596.9945319,
+                "auxillary_file_paths": [
+                    "results\\defender_cbs_v3\\CombatAgent\\CombatAgent-149998.pt"
+                ]
+            },
+            {
+                "steps": 163338,
+                "file_path": "results\\defender_cbs_v3\\CombatAgent\\CombatAgent-163338.onnx",
+                "reward": -21.178798392415047,
+                "creation_time": 1780366838.3105862,
+                "auxillary_file_paths": [
+                    "results\\defender_cbs_v3\\CombatAgent\\CombatAgent-163338.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 163338,
+            "file_path": "results\\defender_cbs_v3\\CombatAgent.onnx",
+            "reward": -21.178798392415047,
+            "creation_time": 1780366838.3105862,
+            "auxillary_file_paths": [
+                "results\\defender_cbs_v3\\CombatAgent\\CombatAgent-163338.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.1.0",
+        "torch_version": "2.8.0+cpu"
+    }
+}
