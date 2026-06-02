@@ -1647,6 +1647,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 6082262751175829137}
+    - target: {fileID: 2784455248499407946, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
+      propertyPath: attackDamage
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2799686932881907665, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
       propertyPath: opponent
       value: 
@@ -1657,7 +1661,7 @@ PrefabInstance:
       objectReference: {fileID: 1357766174}
     - target: {fileID: 4211524079342500108, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
       propertyPath: currentHealth
-      value: 55
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5076055506342010063, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
       propertyPath: target
@@ -1669,7 +1673,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 523944886092325560, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1181273239}
+      addedObject: {fileID: 1181273246}
   m_SourcePrefab: {fileID: 100100000, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
 --- !u!114 &1048873681 stripped
 MonoBehaviour:
@@ -1857,7 +1861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 429d31146bce7d74f9b8f291bfc02bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1181273239
+--- !u!114 &1181273246
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1866,7 +1870,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1181273216}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3df45a8dcc0e9f242aca766a4403a2cb, type: 3}
+  m_Script: {fileID: 11500000, guid: be5a3ef00b4f9c74db0703bd229b25c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   self: {fileID: 1048873681}
@@ -1878,15 +1882,15 @@ MonoBehaviour:
   enemyLowHpThreshold: 0.3
   killZoneInner: 1.5
   killZoneOuter: 2.5
-  enemyAggroRange: 1.5
-  counterChance: 0.5
   facingAngle: 45
   maintainMoveSpeed: 2
   pokeRetreatDodgeImpulse: 2
   counterDecisionCooldown: 0.8
   defenseDecisionCooldown: 0.8
+  inEnemyZoneDodgeTime: 0.3
   showDebug: 1
   escapeDodgeImpulse: 2
+  toleranceTimer: 15
 --- !u!1 &1202771164
 GameObject:
   m_ObjectHideFlags: 0
@@ -3293,6 +3297,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 938506023348638990, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
+      propertyPath: attackCooldown
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1227068919629312814, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -3344,6 +3352,10 @@ PrefabInstance:
     - target: {fileID: 1765633739275492742, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
       propertyPath: attackRange
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1765633739275492742, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
+      propertyPath: attackDamage
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1895096263345252756, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
       propertyPath: m_Name
