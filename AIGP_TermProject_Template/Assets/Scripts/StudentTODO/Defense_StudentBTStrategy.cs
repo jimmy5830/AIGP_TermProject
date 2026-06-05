@@ -36,6 +36,8 @@ public class Defense_StudentBTStrategy : MonoBehaviour
     private float _counterTimer;
     private float _defenseTimer;
     private float _EZdodgeTimer;
+    private bool _attackJustFinished;
+    private float _attackFlagExpiry;
 
     private void Awake()
     {
@@ -57,6 +59,7 @@ public class Defense_StudentBTStrategy : MonoBehaviour
 
         if (_counterTimer > 0f) _counterTimer -= Time.deltaTime;
         if (_defenseTimer > 0f) _defenseTimer -= Time.deltaTime;
+        if (_attackJustFinished && Time.time > _attackFlagExpiry) _attackJustFinished = false;
         if(toleranceTimer > 0f && self.CurrentHealthRatio <= lowHpThreshold) toleranceTimer -= Time.deltaTime;
 
         if(InEnemyZone() && _EZdodgeTimer>0f) _EZdodgeTimer -= Time.deltaTime;
@@ -179,6 +182,11 @@ public class Defense_StudentBTStrategy : MonoBehaviour
         return DistanceToTarget() > killZoneOuter;
     }
 
+    private bool IsNotBusy()
+    {
+        return actionController != null && !actionController.IsBusy;
+    }
+
     private bool InSelfAttackRange()
     {
         return DistanceToTarget() <= killZoneOuter;
@@ -195,6 +203,8 @@ public class Defense_StudentBTStrategy : MonoBehaviour
         debugAction = "Attack";
         actionController.Face(DirectionToTarget());
         actionController.Attack();
+        _attackJustFinished = true;
+        _attackFlagExpiry = Time.time + 2.0f;
     }
 
     private void DoDodgeBack()
@@ -261,11 +271,21 @@ public class Defense_StudentBTStrategy : MonoBehaviour
     {
         return new SelectorNode(
             new SequenceNode(
+                new ConditionNode(IsNotBusy),
+                new ConditionNode(() => _attackJustFinished),
                 new ConditionNode(() => cooldownSystem != null && cooldownSystem.IsDodgeReady()),
+                new ActionNode(() =>
+                {
+                    DoDodgeBackFar();
+                    _attackJustFinished = false;
+                    return BTNodeStatus.Success;
+                })
+            ),
+            new SequenceNode(
+                new ConditionNode(IsNotBusy),
                 new ConditionNode(() => cooldownSystem != null && cooldownSystem.IsAttackReady()),
                 new ConditionNode(() => IsFacingTarget(facingAngle)),
-                new ActionNode(DoFaceAndAttack),
-                new ActionNode(DoDodgeBackFar)
+                new ActionNode(DoFaceAndAttack)
             ),
             new ParallelNode(1, 2,
                 new ActionNode(DoMaintainKillZone),
@@ -278,12 +298,22 @@ public class Defense_StudentBTStrategy : MonoBehaviour
     {
         return new SelectorNode(
             new SequenceNode(
+                new ConditionNode(IsNotBusy),
+                new ConditionNode(() => _attackJustFinished),
                 new ConditionNode(() => cooldownSystem != null && cooldownSystem.IsDodgeReady()),
+                new ActionNode(() =>
+                {
+                    DoDodgeBackFar();
+                    _attackJustFinished = false;
+                    return BTNodeStatus.Success;
+                })
+            ),
+            new SequenceNode(
+                new ConditionNode(IsNotBusy),
                 new ConditionNode(() => cooldownSystem != null && cooldownSystem.IsAttackReady()),
                 new ConditionNode(() => target.CooldownSystem != null && !target.CooldownSystem.IsAttackReady()),
                 new ConditionNode(() => IsFacingTarget(facingAngle)),
-                new ActionNode(DoFaceAndAttack),
-                new ActionNode(DoDodgeBackFar)
+                new ActionNode(DoFaceAndAttack)
             ),
             new ParallelNode(1, 2,
                 new ActionNode(DoMaintainKillZone),
@@ -394,6 +424,7 @@ public class Defense_StudentBTStrategy : MonoBehaviour
         );
 
         BTNode counterDecision = new SequenceNode(
+            new ConditionNode(IsNotBusy),
             new ConditionNode(() => _counterTimer <= 0f),
             new ActionNode(() =>
             {
@@ -448,16 +479,6 @@ public class Defense_StudentBTStrategy : MonoBehaviour
                     new ActionNode(DoDodgeBack)
                 )
             )
-        );
-    }
-
-    private BTNode BuildPhase3Branch()
-    {
-        return new SelectorNode(
-            BuildPhase3Defense(),
-            new SequenceNode(new ConditionNode(InEnemyZone), BuildEnemyZoneEscapeWithDodge()),
-            new SequenceNode(new ConditionNode(InKillZone),  BuildRestrictedKillZoneAction()),
-            new ActionNode(DoApproachKillZone)
         );
     }
 
