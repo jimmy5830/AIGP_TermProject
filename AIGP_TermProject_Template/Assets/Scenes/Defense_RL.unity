@@ -1717,7 +1717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   self: {fileID: 1048873681}
-  target: {fileID: 0}
+  target: {fileID: 6082262751175829137}
   actionController: {fileID: 1048873682}
   cooldownSystem: {fileID: 1048873685}
   attackDistance: 1.8
@@ -1974,8 +1974,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd676f1b793a945488859a6024e0258e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agentA: {fileID: 1475817621}
-  agentB: {fileID: 1958932429}
+  agentA: {fileID: 6082262751175829137}
+  agentB: {fileID: 1048873681}
   spawnPointA: {fileID: 738793084}
   spawnPointB: {fileID: 277841199}
   resetDelay: 1.5
@@ -2467,6 +2467,7 @@ MonoBehaviour:
   opponent: {fileID: 1958932429}
   actionController: {fileID: 1475817619}
   cooldownSystem: {fileID: 1475817620}
+  opponentCooldownSystem: {fileID: 0}
   episodeManager: {fileID: 1357766174}
 --- !u!114 &1475817626
 MonoBehaviour:
@@ -3481,7 +3482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 11
+    VectorObservationSize: 12
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 0
@@ -3516,9 +3517,10 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   self: {fileID: 6082262751175829137}
-  opponent: {fileID: 0}
+  opponent: {fileID: 1048873681}
   actionController: {fileID: 6082262751175829138}
   cooldownSystem: {fileID: 6082262751175829141}
+  opponentCooldownSystem: {fileID: 1048873685}
   episodeManager: {fileID: 1357766174}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -3526,10 +3528,10 @@ SceneRoots:
   m_Roots:
   - {fileID: 330585546}
   - {fileID: 1475817616}
+  - {fileID: 6082262751175829136}
+  - {fileID: 1048873680}
   - {fileID: 1958932428}
   - {fileID: 738793084}
   - {fileID: 277841199}
   - {fileID: 1357766173}
-  - {fileID: 6082262751175829136}
-  - {fileID: 1048873680}
   - {fileID: 1202771165}
