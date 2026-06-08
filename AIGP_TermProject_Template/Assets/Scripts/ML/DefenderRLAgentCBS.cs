@@ -29,42 +29,65 @@ public class DefenderRLAgentCBS : Agent
     private const int SkillBlock = 2;
     private const int SkillDodge = 3;
 
+    // Observation count.
+    // 기존 12개 + counter opportunity 여부 1개.
+    private const int ObservationSize = 13;
+
+    // Real combat ranges.
+    // 공격형 사거리: 1.5
+    // 방어형 사거리: 2.0
+    private const float AttackerAttackRange = 1.5f;
+    private const float DefenderAttackRange = 2.0f;
+
     // Defensive RL distance settings.
-    // Baseline attacker starts attacking around 1.8,
-    // defender attack range is around 2.0.
-    // Therefore, the useful outranging zone is narrow.
-    private const float EnemyZoneDistance = 1.8f;
-    private const float ThreatDistance = 1.9f;
+    // Enemy Zone: 공격형 사거리 안.
+    // Kill Zone: 공격형 사거리 밖이면서 방어형 사거리 안.
+    private const float EnemyZoneDistance = AttackerAttackRange;
+    private const float ThreatDistance = AttackerAttackRange + 0.15f;
 
-    private const float KillZoneMin = 1.85f;
-    private const float KillZoneMax = 1.98f;
+    // 살짝 여유를 둔 Kill Zone.
+    // 너무 경계값에 붙으면 판정/이동 때문에 학습이 불안정해질 수 있음.
+    private const float KillZoneMin = AttackerAttackRange + 0.08f; // 1.58
+    private const float KillZoneMax = DefenderAttackRange - 0.05f; // 1.95
 
+    private const float TooFarDistance = DefenderAttackRange + 0.35f; // 2.35
     private const float MaxObservationDistance = 5.0f;
 
     // Reward and episode settings.
-    private const float TooFarDistance = 2.25f;
     private const float FacingRewardThreshold = 0.7f;
     private const float MaxTrainingEpisodeTime = 60f;
+
+    // Counter settings.
     private const float CounterRewardWindow = 2.0f;
+    private const float CounterAttackRequestWindow = 1.5f;
 
     // Reward tuning.
     private const float SurvivalReward = 0.0002f;
     private const float KillZoneReward = 0.006f;
     private const float TooFarPenalty = -0.012f;
 
-    private const float AttackAttemptReward = 0.04f;
     private const float BlockResponseReward = 0.15f;
     private const float DodgeResponseReward = 0.10f;
 
+    private const float AttackAttemptReward = 0.035f;
+    private const float KillZoneAttackAttemptReward = 0.05f;
+    private const float CounterAttackChoiceReward = 0.25f;
+    private const float CounterHitBonus = 0.75f;
+
     private const float PassiveInKillZonePenalty = -0.008f;
     private const float BackFromKillZonePenalty = -0.01f;
+    private const float CounterSkipPenalty = -0.035f;
 
     // Previous health values used for reward calculation.
     private float previousSelfHealth;
     private float previousOpponentHealth;
 
     private float episodeStartTime;
+
+    private bool counterOpportunityActive;
+    private float counterOpportunityEndTime = -999f;
     private float lastDefensiveActionTime = -999f;
+    private float lastCounterAttackRequestTime = -999f;
 
     public override void Initialize()
     {
@@ -76,18 +99,26 @@ public class DefenderRLAgentCBS : Agent
         FillDefaultReferences();
     }
 
+    private void Update()
+    {
+        // Block 중에도 상대 방향을 계속 바라보게 하여 방어 판정과 후속 카운터 방향을 안정화한다.
+        if (actionController != null && actionController.IsBlocking)
+        {
+            actionController.UpdateRotationLock(DirectionToOpponent());
+        }
+    }
+
     public override void OnEpisodeBegin()
     {
         FillDefaultReferences();
 
-        // Keep the ML-Agents episode reset synchronized with the combat scene reset.
         if (episodeManager != null)
         {
             episodeManager.ResetEpisode();
         }
 
         episodeStartTime = Time.time;
-        lastDefensiveActionTime = -999f;
+        ResetCounterState();
 
         if (self != null)
         {
@@ -104,10 +135,9 @@ public class DefenderRLAgentCBS : Agent
     {
         FillDefaultReferences();
 
-        // If references are missing, add zero observations to keep the observation size fixed.
         if (self == null || opponent == null)
         {
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < ObservationSize; i++)
             {
                 sensor.AddObservation(0f);
             }
@@ -123,9 +153,6 @@ public class DefenderRLAgentCBS : Agent
             ? transform.forward
             : offset.normalized;
 
-        // Convert opponent direction into local space.
-        // localDirection.z > 0 means opponent is in front.
-        // localDirection.x > 0 means opponent is to the right.
         Vector3 localDirection = transform.InverseTransformDirection(directionToOpponent);
 
         Vector3 selfForward = transform.forward;
@@ -148,12 +175,7 @@ public class DefenderRLAgentCBS : Agent
 
         opponentForward.Normalize();
 
-        // 1 means I am facing the opponent.
-        // -1 means I am facing away from the opponent.
         float selfFacingOpponent = Vector3.Dot(selfForward, directionToOpponent);
-
-        // 1 means the opponent is facing me.
-        // -1 means the opponent is facing away from me.
         float opponentFacingSelf = Vector3.Dot(opponentForward, -directionToOpponent);
 
         CooldownSystem opponentCooldown = opponent.CooldownSystem;
@@ -194,6 +216,9 @@ public class DefenderRLAgentCBS : Agent
 
         // 12. Whether opponent is attacking
         sensor.AddObservation(opponentAction != null && opponentAction.IsAttacking ? 1f : 0f);
+
+        // 13. Whether counter opportunity is active
+        sensor.AddObservation(IsCounterOpportunityActive() ? 1f : 0f);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -206,10 +231,9 @@ public class DefenderRLAgentCBS : Agent
             return;
         }
 
-        // 1. Reward from health changes that happened since the last decision.
+        // 이전 decision 이후 발생한 피격/타격 결과 보상.
         ApplyHealthChangeRewards();
 
-        // 2. End immediately if the episode is already over.
         if (TryEndTrainingEpisode())
         {
             return;
@@ -231,56 +255,33 @@ public class DefenderRLAgentCBS : Agent
             ? discreteActions[1]
             : SkillNone;
 
-        // 3. Penalize impossible or wasteful skill choices.
-        ApplySkillChoicePenalty(skillAction);
+        ApplySkillChoicePenalty(skillAction, distance);
 
-        // 4. Reward defensive reaction when the opponent attacks.
-        if (opponentIsAttacking && !actionController.IsBusy)
+        // 상대 공격에 대한 방어 반응 보상.
+        ApplyDefensiveResponseReward(skillAction, distance, opponentIsAttacking);
+
+        // 방어 이후 카운터 선택 보상.
+        ApplyCounterOpportunityReward(moveAction, skillAction, distance);
+
+        // 일반 공격 시도 보상.
+        ApplyAttackAttemptReward(skillAction, distance);
+
+        // Attack을 선택한 decision에서는 이동을 생략한다.
+        // 이동 후 공격하면 Kill Zone 밖으로 밀려나거나 회전이 꼬여 공격이 실패할 수 있기 때문이다.
+        if (skillAction != SkillAttack)
         {
-            if (skillAction == SkillBlock && cooldownSystem != null && cooldownSystem.IsBlockReady())
-            {
-                AddReward(BlockResponseReward);
-                lastDefensiveActionTime = Time.time;
-            }
-            else if (skillAction == SkillDodge && cooldownSystem != null && cooldownSystem.IsDodgeReady())
-            {
-                AddReward(DodgeResponseReward);
-                lastDefensiveActionTime = Time.time;
-            }
-            else if (skillAction == SkillNone)
-            {
-                AddReward(-0.03f);
-            }
+            ExecuteMovementAction(moveAction, directionToOpponent);
         }
 
-        // 5. Reward attack attempt in the correct Kill Zone.
-        if (skillAction == SkillAttack
-            && cooldownSystem != null
-            && cooldownSystem.IsAttackReady()
-            && distance >= KillZoneMin
-            && distance <= KillZoneMax
-            && FacingOpponentScore() >= FacingRewardThreshold
-            && !actionController.IsBusy)
-        {
-            AddReward(AttackAttemptReward);
-        }
-
-        // 6. Execute movement action.
-        ExecuteMovementAction(moveAction, directionToOpponent);
-
-        // 7. Execute combat action.
         ExecuteSkillAction(skillAction, directionToOpponent);
 
-        // 8. Apply distance / position based rewards.
         ApplyStepRewards(moveAction, skillAction);
 
-        // 9. End after executing action if needed.
         if (TryEndTrainingEpisode())
         {
             return;
         }
 
-        // 10. Store health values for the next decision.
         previousSelfHealth = self.CurrentHealth;
         previousOpponentHealth = opponent.CurrentHealth;
     }
@@ -345,8 +346,10 @@ public class DefenderRLAgentCBS : Agent
         {
             rightDirection = transform.right;
         }
-
-        rightDirection.Normalize();
+        else
+        {
+            rightDirection.Normalize();
+        }
 
         switch (moveAction)
         {
@@ -401,6 +404,127 @@ public class DefenderRLAgentCBS : Agent
         }
     }
 
+    private void ApplyDefensiveResponseReward(
+        int skillAction,
+        float distance,
+        bool opponentIsAttacking)
+    {
+        if (!opponentIsAttacking || actionController == null || actionController.IsBusy)
+        {
+            return;
+        }
+
+        // 실제 공격형 사거리 1.5보다 약간 넓은 threat 구역에서만 방어 반응을 강화한다.
+        if (distance > ThreatDistance)
+        {
+            return;
+        }
+
+        if (skillAction == SkillBlock
+            && cooldownSystem != null
+            && cooldownSystem.IsBlockReady())
+        {
+            AddReward(BlockResponseReward);
+            StartCounterOpportunity();
+        }
+        else if (skillAction == SkillDodge
+            && cooldownSystem != null
+            && cooldownSystem.IsDodgeReady())
+        {
+            AddReward(DodgeResponseReward);
+            StartCounterOpportunity();
+        }
+        else if (skillAction == SkillNone)
+        {
+            AddReward(-0.03f);
+        }
+    }
+
+    private void ApplyCounterOpportunityReward(
+        int moveAction,
+        int skillAction,
+        float distance)
+    {
+        if (!IsCounterOpportunityActive())
+        {
+            return;
+        }
+
+        if (actionController == null || cooldownSystem == null)
+        {
+            return;
+        }
+
+        bool canCounterNow =
+            !actionController.IsBusy
+            && cooldownSystem.IsAttackReady()
+            && distance <= DefenderAttackRange
+            && FacingOpponentScore() >= FacingRewardThreshold;
+
+        if (!canCounterNow)
+        {
+            return;
+        }
+
+        if (skillAction == SkillAttack)
+        {
+            AddReward(CounterAttackChoiceReward);
+            lastCounterAttackRequestTime = Time.time;
+
+            if (moveAction == MoveBack)
+            {
+                AddReward(-0.02f);
+            }
+
+            return;
+        }
+
+        // 방어 후 공격 가능한 상황인데 또 물러나거나 아무것도 안 하면 카운터를 배울 수 없다.
+        if (skillAction == SkillNone
+            || skillAction == SkillBlock
+            || skillAction == SkillDodge
+            || moveAction == MoveBack)
+        {
+            AddReward(CounterSkipPenalty);
+        }
+    }
+
+    private void ApplyAttackAttemptReward(int skillAction, float distance)
+    {
+        if (skillAction != SkillAttack)
+        {
+            return;
+        }
+
+        if (actionController == null || cooldownSystem == null)
+        {
+            return;
+        }
+
+        // 방어 직후 busy 상태에서 Attack을 누르는 것은 흔한 탐색 과정이다.
+        // 실제 공격은 안 나가지만, 여기서 강한 페널티를 주면 카운터 학습이 막힐 수 있다.
+        if (actionController.IsBusy)
+        {
+            return;
+        }
+
+        if (!cooldownSystem.IsAttackReady())
+        {
+            return;
+        }
+
+        if (distance <= DefenderAttackRange
+            && FacingOpponentScore() >= FacingRewardThreshold)
+        {
+            AddReward(AttackAttemptReward);
+
+            if (IsInKillZone(distance))
+            {
+                AddReward(KillZoneAttackAttemptReward);
+            }
+        }
+    }
+
     private void ApplyStepRewards(int moveAction, int skillAction)
     {
         if (self == null || opponent == null)
@@ -409,50 +533,44 @@ public class DefenderRLAgentCBS : Agent
         }
 
         float distance = DistanceToOpponent();
-        bool inKillZone = distance >= KillZoneMin && distance <= KillZoneMax;
+        bool inKillZone = IsInKillZone(distance);
 
-        // Very small survival reward.
         AddReward(SurvivalReward);
 
-        // Kill Zone reward.
         if (inKillZone)
         {
             AddReward(KillZoneReward);
         }
 
-        // Enemy Zone penalty. More severe when HP is low.
         if (distance < EnemyZoneDistance)
         {
             float penalty = self.CurrentHealthRatio < 0.3f ? -0.035f : -0.02f;
             AddReward(penalty);
 
-            // Moving back is good only when too close.
             if (moveAction == MoveBack)
             {
                 AddReward(0.004f);
             }
         }
 
-        // Stronger penalty for running too far away.
         if (distance > TooFarDistance)
         {
             AddReward(TooFarPenalty);
         }
 
-        // Small reward for facing the opponent.
         float facing = FacingOpponentScore();
         if (facing >= FacingRewardThreshold)
         {
             AddReward(0.001f);
         }
 
-        // Do not back away from the ideal attack zone every time.
+        // Kill Zone에 있는데 계속 뒤로 빠지면 공격 기회를 잃는다.
         if (inKillZone && moveAction == MoveBack)
         {
             AddReward(BackFromKillZonePenalty);
         }
 
-        // If attack is ready in Kill Zone, doing nothing is bad.
+        // Kill Zone + 공격 가능 + 정면인데 아무것도 안 하면 소극적 패턴으로 굳을 수 있다.
         if (inKillZone
             && cooldownSystem != null
             && cooldownSystem.IsAttackReady()
@@ -462,7 +580,6 @@ public class DefenderRLAgentCBS : Agent
             AddReward(PassiveInKillZonePenalty);
         }
 
-        // If the opponent is attacking within threat distance and the agent does not block/dodge, penalize.
         CombatActionController opponentAction = opponent.ActionController;
         bool opponentIsAttacking = opponentAction != null && opponentAction.IsAttacking;
 
@@ -492,18 +609,23 @@ public class DefenderRLAgentCBS : Agent
         float opponentDamage = previousOpponentHealth - opponent.CurrentHealth;
         if (opponentDamage > 0.001f)
         {
-            float damageReward = opponent.CurrentHealthRatio <= 0.3f ? 0.9f : 0.65f;
+            float damageReward = opponent.CurrentHealthRatio <= 0.3f ? 0.45f : 0.35f;
             AddReward(damageReward);
 
-            // Extra reward for counterattacking shortly after block/dodge.
-            if (Time.time - lastDefensiveActionTime <= CounterRewardWindow)
+            bool wasCounter =
+                IsCounterOpportunityActive()
+                || Time.time - lastDefensiveActionTime <= CounterRewardWindow
+                || Time.time - lastCounterAttackRequestTime <= CounterAttackRequestWindow;
+
+            if (wasCounter)
             {
-                AddReward(0.45f);
+                AddReward(CounterHitBonus);
+                ClearCounterOpportunity();
             }
         }
     }
 
-    private void ApplySkillChoicePenalty(int skillAction)
+    private void ApplySkillChoicePenalty(int skillAction, float distance)
     {
         if (skillAction == SkillNone || actionController == null || cooldownSystem == null)
         {
@@ -512,6 +634,12 @@ public class DefenderRLAgentCBS : Agent
 
         if (actionController.IsBusy)
         {
+            // 방어 직후 Attack 선택을 무조건 벌주면 카운터 학습이 막힌다.
+            if (skillAction == SkillAttack && IsCounterOpportunityActive())
+            {
+                return;
+            }
+
             AddReward(-0.03f);
             return;
         }
@@ -527,6 +655,18 @@ public class DefenderRLAgentCBS : Agent
         else if (skillAction == SkillDodge && !cooldownSystem.IsDodgeReady())
         {
             AddReward(-0.04f);
+        }
+
+        if (skillAction == SkillAttack)
+        {
+            if (distance > DefenderAttackRange + 0.05f)
+            {
+                AddReward(-0.025f);
+            }
+            else if (distance < EnemyZoneDistance && !IsCounterOpportunityActive())
+            {
+                AddReward(-0.015f);
+            }
         }
     }
 
@@ -563,13 +703,54 @@ public class DefenderRLAgentCBS : Agent
 
         if (Time.time - episodeStartTime >= MaxTrainingEpisodeTime)
         {
-            // Defensive survival still matters, but timeout should not dominate over fighting.
-            AddReward(0.05f);
+            AddReward(0.25f);
             EndEpisode();
             return true;
         }
 
         return false;
+    }
+
+    private void StartCounterOpportunity()
+    {
+        counterOpportunityActive = true;
+        counterOpportunityEndTime = Time.time + CounterRewardWindow;
+        lastDefensiveActionTime = Time.time;
+    }
+
+    private void ClearCounterOpportunity()
+    {
+        counterOpportunityActive = false;
+        counterOpportunityEndTime = -999f;
+    }
+
+    private void ResetCounterState()
+    {
+        counterOpportunityActive = false;
+        counterOpportunityEndTime = -999f;
+        lastDefensiveActionTime = -999f;
+        lastCounterAttackRequestTime = -999f;
+    }
+
+    private bool IsCounterOpportunityActive()
+    {
+        if (!counterOpportunityActive)
+        {
+            return false;
+        }
+
+        if (Time.time > counterOpportunityEndTime)
+        {
+            ClearCounterOpportunity();
+            return false;
+        }
+
+        return true;
+    }
+
+    private bool IsInKillZone(float distance)
+    {
+        return distance >= KillZoneMin && distance <= KillZoneMax;
     }
 
     private Vector3 DirectionToOpponent()
@@ -639,6 +820,17 @@ public class DefenderRLAgentCBS : Agent
         if (episodeManager == null)
         {
             episodeManager = FindFirstObjectByType<EpisodeManager>();
+        }
+
+        if (opponent == null)
+        {
+            string opponentName = gameObject.name == "Agent_A" ? "Agent_B" : "Agent_A";
+            GameObject found = GameObject.Find(opponentName);
+
+            if (found != null)
+            {
+                opponent = found.GetComponent<CombatCharacter>();
+            }
         }
     }
 }

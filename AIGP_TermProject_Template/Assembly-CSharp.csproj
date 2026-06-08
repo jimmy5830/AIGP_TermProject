@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\BT\ConditionNode.cs" />
     <Compile Include="Assets\Scripts\Core\EpisodeManager.cs" />
     <Compile Include="Assets\Scripts\BT\BTNode.cs" />
+    <Compile Include="Assets\Scripts\StudentTODO\Defense_StudentBTStrategy.cs" />
     <Compile Include="Assets\Scripts\BT\SequenceNode.cs" />
     <Compile Include="Assets\Scripts\Core\CombatAnimatorDriver.cs" />
   </ItemGroup>

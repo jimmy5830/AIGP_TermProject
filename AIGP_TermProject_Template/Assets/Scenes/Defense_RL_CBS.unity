@@ -1682,6 +1682,9 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 523944886092325560, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1048873705}
+    - targetCorrespondingSourceObject: {fileID: 523944886092325560, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1048873691}
     - targetCorrespondingSourceObject: {fileID: 523944886092325560, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
       insertIndex: -1
@@ -1689,6 +1692,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 523944886092325560, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1048873693}
+    - targetCorrespondingSourceObject: {fileID: 523944886092325560, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1048873711}
   m_SourcePrefab: {fileID: 100100000, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
 --- !u!114 &1048873681 stripped
 MonoBehaviour:
@@ -1736,7 +1742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 12
+    VectorObservationSize: 13
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 0
@@ -1795,6 +1801,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 868840365562148866, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
   m_PrefabInstance: {fileID: 1048873680}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1048873705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10003456}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8edcac9b17d2b20469d219cd92ee168c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  self: {fileID: 1048873681}
+  target: {fileID: 6082262751175829137}
+  actionController: {fileID: 1048873683}
+  cooldownSystem: {fileID: 1048873682}
+  highHpThreshold: 0.6
+  lowHpThreshold: 0.3
+  enemyLowHpThreshold: 0.3
+  killZoneInner: 1.8
+  killZoneOuter: 2
+  facingAngle: 45
+  maintainMoveSpeed: 3
+  pokeRetreatDodgeImpulse: 4
+  counterDecisionCooldown: 0.8
+  defenseDecisionCooldown: 0.8
+  inEnemyZoneDodgeTime: 0.8
+  showDebug: 1
+  escapeDodgeImpulse: 2
+  toleranceTimer: 5
+--- !u!114 &1048873711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10003456}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 961c44ca5da0c8e44b18d7785e377586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  self: {fileID: 1048873681}
+  target: {fileID: 0}
+  actionController: {fileID: 1048873683}
+  cooldownSystem: {fileID: 1048873682}
+  closeDistance: 2
+  preferredDistance: 3
+  lowHealthRatio: 0.3
 --- !u!4 &1054834878 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7075952231625051547, guid: 3d66f178f4d047a469c3b8fd3841cefc, type: 3}
@@ -3354,6 +3409,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 938506023348638990, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
+      propertyPath: dodgeCooldown
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1227068919629312814, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -3402,6 +3461,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1048873681}
+    - target: {fileID: 1765633739275492742, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
+      propertyPath: attackRange
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1895096263345252756, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
       propertyPath: m_Name
       value: AgentA
@@ -3428,7 +3491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3707628258670134852, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
       propertyPath: dodgeImpulse
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5963434143807491845, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
       propertyPath: m_Enabled
@@ -3469,7 +3532,7 @@ MonoBehaviour:
   target: {fileID: 1048873681}
   actionController: {fileID: 6082262751175829139}
   cooldownSystem: {fileID: 6082262751175829142}
-  attackDistance: 1.8
+  attackDistance: 1.5
   facingAngle: 45
   lowHealthRatio: 0.35
 --- !u!114 &6082262751175829139 stripped
