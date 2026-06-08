@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\BT\SequenceNode.cs" />
     <Compile Include="Assets\Scripts\Core\CombatAnimatorDriver.cs" />
     <None Include="Assets\ML-Agents\Timers\TermProject_Arena_timers.json" />
+    <None Include="Assets\ML-Agents\Timers\Defense_RL_timers.json" />
     <Reference Include="UnityEngine">
       <HintPath>D:\Unity\Installs\6000.0.39f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
