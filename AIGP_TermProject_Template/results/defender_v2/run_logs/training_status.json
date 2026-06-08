@@ -1,0 +1,65 @@
+{
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.1.0",
+        "torch_version": "2.8.0+cpu"
+    },
+    "CombatAgent": {
+        "checkpoints": [
+            {
+                "steps": 549984,
+                "file_path": "results\\defender_v2\\CombatAgent\\CombatAgent-549984.onnx",
+                "reward": 52.284998734792076,
+                "creation_time": 1780877218.3793042,
+                "auxillary_file_paths": [
+                    "results\\defender_v2\\CombatAgent\\CombatAgent-549984.pt"
+                ]
+            },
+            {
+                "steps": 599994,
+                "file_path": "results\\defender_v2\\CombatAgent\\CombatAgent-599994.onnx",
+                "reward": 125.28500008583069,
+                "creation_time": 1780877459.4682434,
+                "auxillary_file_paths": [
+                    "results\\defender_v2\\CombatAgent\\CombatAgent-599994.pt"
+                ]
+            },
+            {
+                "steps": 649952,
+                "file_path": "results\\defender_v2\\CombatAgent\\CombatAgent-649952.onnx",
+                "reward": 85.158327460289,
+                "creation_time": 1780877699.7100086,
+                "auxillary_file_paths": [
+                    "results\\defender_v2\\CombatAgent\\CombatAgent-649952.pt"
+                ]
+            },
+            {
+                "steps": 699974,
+                "file_path": "results\\defender_v2\\CombatAgent\\CombatAgent-699974.onnx",
+                "reward": 112.50499296188354,
+                "creation_time": 1780877940.4747212,
+                "auxillary_file_paths": [
+                    "results\\defender_v2\\CombatAgent\\CombatAgent-699974.pt"
+                ]
+            },
+            {
+                "steps": 714840,
+                "file_path": "results\\defender_v2\\CombatAgent\\CombatAgent-714840.onnx",
+                "reward": 78.48499727249146,
+                "creation_time": 1780878077.1026251,
+                "auxillary_file_paths": [
+                    "results\\defender_v2\\CombatAgent\\CombatAgent-714840.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 714840,
+            "file_path": "results\\defender_v2\\CombatAgent.onnx",
+            "reward": 78.48499727249146,
+            "creation_time": 1780878077.1026251,
+            "auxillary_file_paths": [
+                "results\\defender_v2\\CombatAgent\\CombatAgent-714840.pt"
+            ]
+        }
+    }
+}
