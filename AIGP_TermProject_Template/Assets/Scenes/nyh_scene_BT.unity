@@ -744,6 +744,7 @@ GameObject:
   - component: {fileID: 330585545}
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
+  - component: {fileID: 330585548}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -869,6 +870,22 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &330585548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d56c75279de1a541b0b1687e04d9390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentA: {fileID: 6082262751175829159}
+  agentB: {fileID: 1181273252}
+  offset: {x: 0, y: 4, z: -6}
+  smoothSpeed: 8
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,6 +1664,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 6082262751175829137}
+    - target: {fileID: 2784455248499407946, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
+      propertyPath: attackDamage
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2799686932881907665, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
       propertyPath: opponent
       value: 
@@ -1657,7 +1678,7 @@ PrefabInstance:
       objectReference: {fileID: 1357766174}
     - target: {fileID: 4211524079342500108, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
       propertyPath: currentHealth
-      value: 55
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5076055506342010063, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
       propertyPath: target
@@ -1669,7 +1690,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 523944886092325560, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1181273239}
+      addedObject: {fileID: 1181273253}
   m_SourcePrefab: {fileID: 100100000, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
 --- !u!114 &1048873681 stripped
 MonoBehaviour:
@@ -1857,7 +1878,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 429d31146bce7d74f9b8f291bfc02bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1181273239
+--- !u!4 &1181273252 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 868840365562148866, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
+  m_PrefabInstance: {fileID: 1048873680}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1181273253
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1878,15 +1904,15 @@ MonoBehaviour:
   enemyLowHpThreshold: 0.3
   killZoneInner: 1.5
   killZoneOuter: 2.5
-  enemyAggroRange: 1.5
-  counterChance: 0.5
   facingAngle: 45
   maintainMoveSpeed: 2
-  pokeRetreatDodgeImpulse: 2
+  pokeRetreatDodgeImpulse: 3
   counterDecisionCooldown: 0.8
   defenseDecisionCooldown: 0.8
+  inEnemyZoneDodgeTime: 0.8
   showDebug: 1
   escapeDodgeImpulse: 2
+  toleranceTimer: 5
 --- !u!1 &1202771164
 GameObject:
   m_ObjectHideFlags: 0
@@ -3293,6 +3319,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 938506023348638990, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
+      propertyPath: attackCooldown
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1227068919629312814, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -3345,6 +3375,10 @@ PrefabInstance:
       propertyPath: attackRange
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1765633739275492742, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
+      propertyPath: attackDamage
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1895096263345252756, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
       propertyPath: m_Name
       value: AgentA
@@ -3379,7 +3413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3707628258670134852, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
       propertyPath: moveSpeed
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3707628258670134852, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
       propertyPath: dodgeImpulse
@@ -3449,6 +3483,11 @@ MonoBehaviour:
   attackDistance: 1.5
   facingAngle: 45
   lowHealthRatio: 0.35
+--- !u!4 &6082262751175829159 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1227068919629312814, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
+  m_PrefabInstance: {fileID: 6082262751175829136}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
