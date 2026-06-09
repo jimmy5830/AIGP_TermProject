@@ -2012,13 +2012,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1357766172}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e159a69711b01148b9efbdfea61db84, type: 3}
+  m_Script: {fileID: 11500000, guid: eec9c2beb8a05d84e9cb2a0f71dfdf87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runId: Attack_RL_15_4
-  agentType: RL
+  runId: defender_bt_v1
+  agentType: BT
   relativeLogFolder: CombatCsvLogs
-  analyzeTarget: 0
+  analyzeTarget: 1
   targetEpisodeCount: 100
   countTimeoutAsEpisodeEnd: 1
   maxEpisodeTime: 60
@@ -2028,14 +2028,14 @@ MonoBehaviour:
   currentMatchStateForInspector: Not Started
   lastWinnerForInspector: 
   currentEpisodeElapsedTimeForInspector: 0
-  timeScale: 10
+  timeScale: 1
   restoreTimeScaleOnEnd: 1
   adjustFixedDeltaTimeWithTimeScale: 0
   resetEpisodeByLogger: 1
   interEpisodeDelay: 0.2
-  agentA: {fileID: 6082262751175829137}
-  agentB: {fileID: 1048873681}
-  episodeManager: {fileID: 1357766174}
+  agentA: {fileID: 0}
+  agentB: {fileID: 0}
+  episodeManager: {fileID: 0}
   movementDistanceThreshold: 0.005
   distanceChangeThreshold: 0.005
   dodgeMovementIgnoreSeconds: 0.25
@@ -3479,6 +3479,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1895096263345252756, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6082262751175829144}
+    - targetCorrespondingSourceObject: {fileID: 1895096263345252756, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6082262751175829151}
   m_SourcePrefab: {fileID: 100100000, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
 --- !u!114 &6082262751175829137 stripped
 MonoBehaviour:
@@ -3592,6 +3595,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1227068919629312814, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
   m_PrefabInstance: {fileID: 6082262751175829136}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6082262751175829151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075584385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88b6042bc9a5d4aa58d931eae49442e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

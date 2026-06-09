@@ -2045,11 +2045,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1357766172}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9da65a8662ee992449d4831b7dd41c5c, type: 3}
+  m_Script: {fileID: 11500000, guid: eec9c2beb8a05d84e9cb2a0f71dfdf87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runId: defender_v2
-  agentType: RL
+  runId: defender_bt_v1
+  agentType: BT
   relativeLogFolder: CombatCsvLogs
   analyzeTarget: 1
   targetEpisodeCount: 100
@@ -2066,9 +2066,9 @@ MonoBehaviour:
   adjustFixedDeltaTimeWithTimeScale: 0
   resetEpisodeByLogger: 1
   interEpisodeDelay: 0.2
-  agentA: {fileID: 6082262751175829137}
-  agentB: {fileID: 1048873681}
-  episodeManager: {fileID: 1357766174}
+  agentA: {fileID: 0}
+  agentB: {fileID: 0}
+  episodeManager: {fileID: 0}
   movementDistanceThreshold: 0.005
   distanceChangeThreshold: 0.005
   dodgeMovementIgnoreSeconds: 0.25

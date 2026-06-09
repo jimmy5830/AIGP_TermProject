@@ -1991,9 +1991,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 1357766172}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a61d894b2f777e47a655c6f7b23f790, type: 3}
+  m_Script: {fileID: 11500000, guid: eec9c2beb8a05d84e9cb2a0f71dfdf87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  runId: defender_bt_v1
+  agentType: BT
+  relativeLogFolder: CombatCsvLogs
+  analyzeTarget: 1
+  targetEpisodeCount: 100
+  countTimeoutAsEpisodeEnd: 1
+  maxEpisodeTime: 60
+  stopPlayModeWhenFinished: 1
+  currentEpisodeForInspector: 0
+  completedEpisodesForInspector: 0
+  currentMatchStateForInspector: Not Started
+  lastWinnerForInspector: 
+  currentEpisodeElapsedTimeForInspector: 0
+  timeScale: 1
+  restoreTimeScaleOnEnd: 1
+  adjustFixedDeltaTimeWithTimeScale: 0
+  resetEpisodeByLogger: 1
+  interEpisodeDelay: 0.2
+  agentA: {fileID: 0}
+  agentB: {fileID: 0}
+  episodeManager: {fileID: 0}
+  movementDistanceThreshold: 0.005
+  distanceChangeThreshold: 0.005
+  dodgeMovementIgnoreSeconds: 0.25
 --- !u!1001 &1417867314
 PrefabInstance:
   m_ObjectHideFlags: 0
