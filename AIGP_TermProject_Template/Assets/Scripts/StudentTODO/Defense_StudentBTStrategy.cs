@@ -29,6 +29,8 @@ public class Defense_StudentBTStrategy : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private bool showDebug = true;
     private string debugAction = "—";
+    private readonly System.Collections.Generic.List<(string msg, float expiry)> _actionLog = new();
+    private const float LabelDuration = 1f;
     [SerializeField] private float escapeDodgeImpulse = 2f;
     [SerializeField] private float toleranceTimer = 5f;
 
@@ -67,6 +69,23 @@ public class Defense_StudentBTStrategy : MonoBehaviour
 
         debugAction = "—";
         root.Tick();
+
+        if (showDebug && debugAction != "—")
+        {
+            int last = _actionLog.Count - 1;
+            if (last >= 0 && _actionLog[last].msg == debugAction)
+                _actionLog[last] = (debugAction, Time.time + LabelDuration);
+            else
+                _actionLog.Add((debugAction, Time.time + LabelDuration));
+        }
+    }
+
+    private void OnGUI()
+    {
+        if (!showDebug) return;
+        _actionLog.RemoveAll(e => Time.time >= e.expiry);
+        for (int i = 0; i < _actionLog.Count; i++)
+            GUI.Label(new Rect(10, 10 + i * 20, 300, 20), $"[Action] {_actionLog[i].msg}");
     }
 
     private void BuildTree()
@@ -333,6 +352,7 @@ public class Defense_StudentBTStrategy : MonoBehaviour
     {
         return new SelectorNode(
             new SequenceNode(
+                new ConditionNode(() => _EZdodgeTimer <= 0f),
                 new ConditionNode(() => cooldownSystem != null && cooldownSystem.IsDodgeReady()),
                 new ActionNode(DoDodgeBack)
             ),
@@ -459,7 +479,7 @@ public class Defense_StudentBTStrategy : MonoBehaviour
 
         return new SelectorNode(
             defenseResponse,
-            new SequenceNode(new ConditionNode(InEnemyZone), new ConditionNode(()=> _EZdodgeTimer <=0f), BuildEnemyZoneEscapeWithDodge()),
+            new SequenceNode(new ConditionNode(InEnemyZone), BuildEnemyZoneEscapeWithDodge()),
             new SequenceNode(new ConditionNode(InKillZone),  BuildStandardKillZoneAction()),
             new ActionNode(DoApproachKillZone)
         );
@@ -498,9 +518,7 @@ public class Defense_StudentBTStrategy : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, killZoneOuter);
 
         if (!Application.isPlaying || self == null || target == null)
-        {
             return;
-        }
 
         float selfHp  = self.CurrentHealthRatio;
         float enemyHp = target.CurrentHealthRatio;
@@ -508,23 +526,16 @@ public class Defense_StudentBTStrategy : MonoBehaviour
 
         string phase;
         if (selfHp < lowHpThreshold)
-        {
-            phase = (enemyHp <= enemyLowHpThreshold || toleranceTimer <=0f) ? "Phase 3 +Finisher" : "Phase 3";
-        }
+            phase = (enemyHp <= enemyLowHpThreshold || toleranceTimer <= 0f) ? "Phase 3 +Finisher" : "Phase 3";
         else if (selfHp < highHpThreshold)
-        {
             phase = "Phase 2";
-        }
         else
-        {
             phase = "Phase 1";
-        }
 
         string zone = InKillZone() ? "KILL ZONE" : InEnemyZone() ? "ENEMY ZONE" : "SAFE ZONE";
 
         string label = $"[StudentBT]\n"
                      + $"Phase : {phase}\n"
-                     + $"Action: {debugAction}\n"
                      + $"HP    : {selfHp:P0}  Enemy: {enemyHp:P0}\n"
                      + $"Dist  : {dist:F2}  [{zone}]";
 

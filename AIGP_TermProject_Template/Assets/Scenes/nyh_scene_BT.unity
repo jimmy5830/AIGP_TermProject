@@ -1666,7 +1666,7 @@ PrefabInstance:
       objectReference: {fileID: 6082262751175829137}
     - target: {fileID: 2784455248499407946, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
       propertyPath: attackDamage
-      value: 0
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2799686932881907665, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
       propertyPath: opponent
@@ -1678,7 +1678,7 @@ PrefabInstance:
       objectReference: {fileID: 1357766174}
     - target: {fileID: 4211524079342500108, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
       propertyPath: currentHealth
-      value: 25
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5076055506342010063, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
       propertyPath: target
@@ -1892,7 +1892,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1181273216}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3df45a8dcc0e9f242aca766a4403a2cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 8fdf15d7c17085240b47cc5247150765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   self: {fileID: 1048873681}
@@ -1906,7 +1906,7 @@ MonoBehaviour:
   killZoneOuter: 2.5
   facingAngle: 45
   maintainMoveSpeed: 2
-  pokeRetreatDodgeImpulse: 3
+  pokeRetreatDodgeImpulse: 2
   counterDecisionCooldown: 0.8
   defenseDecisionCooldown: 0.8
   inEnemyZoneDodgeTime: 0.8
@@ -1982,6 +1982,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1357766173}
   - component: {fileID: 1357766174}
+  - component: {fileID: 1357766175}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2022,6 +2023,42 @@ MonoBehaviour:
   spawnPointB: {fileID: 277841199}
   resetDelay: 1.5
   maxEpisodeTime: 60
+--- !u!114 &1357766175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357766172}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041436df19a5c174a86aa764ae42feb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runId: DefenseBT_v01
+  agentType: BT
+  relativeLogFolder: CombatCsvLogs
+  analyzeTarget: 1
+  targetEpisodeCount: 100
+  countTimeoutAsEpisodeEnd: 1
+  maxEpisodeTime: 60
+  stopPlayModeWhenFinished: 1
+  currentEpisodeForInspector: 0
+  completedEpisodesForInspector: 0
+  currentMatchStateForInspector: Not Started
+  lastWinnerForInspector: 
+  currentEpisodeElapsedTimeForInspector: 0
+  timeScale: 5
+  restoreTimeScaleOnEnd: 1
+  adjustFixedDeltaTimeWithTimeScale: 0
+  resetEpisodeByLogger: 1
+  interEpisodeDelay: 0.2
+  agentA: {fileID: 6082262751175829137}
+  agentB: {fileID: 1048873681}
+  episodeManager: {fileID: 1357766174}
+  movementDistanceThreshold: 0.005
+  distanceChangeThreshold: 0.005
+  dodgeMovementIgnoreSeconds: 0.25
 --- !u!1001 &1417867314
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2508,6 +2545,7 @@ MonoBehaviour:
   opponent: {fileID: 1958932429}
   actionController: {fileID: 1475817619}
   cooldownSystem: {fileID: 1475817620}
+  opponentCooldownSystem: {fileID: 0}
   episodeManager: {fileID: 1357766174}
 --- !u!114 &1475817626
 MonoBehaviour:
@@ -3377,7 +3415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1765633739275492742, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
       propertyPath: attackDamage
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1895096263345252756, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
       propertyPath: m_Name
@@ -3413,11 +3451,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3707628258670134852, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
       propertyPath: moveSpeed
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3707628258670134852, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
       propertyPath: dodgeImpulse
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5963434143807491845, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
       propertyPath: m_Enabled
