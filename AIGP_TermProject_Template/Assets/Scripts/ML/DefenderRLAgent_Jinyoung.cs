@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(CombatCharacter))]
 [RequireComponent(typeof(CooldownSystem))]
 [RequireComponent(typeof(CombatActionController))]
-public class StudentCombatAgent : Agent
+public class DefenderRLAgent_Jinyoung : Agent
 {
     public CombatCharacter self;
     public CombatCharacter opponent;
@@ -23,12 +23,13 @@ public class StudentCombatAgent : Agent
     private const int SkillDodge  = 3;
 
     // Step rewards
-    private const float RewardSurvivePerStep =  0.001f;
-    private const float RewardBlockSuccess   =  0.4f;
-    private const float RewardDodgeSuccess   =  0.3f;
-    private const float RewardCounterAttack  =  0.5f;
-    private const float PenaltyHit           = -0.3f;
-    private const float PenaltyCooldownWaste = -0.05f;
+    private const float RewardSurvivePerStep    =  0.002f;  // v2: 0.001 → 0.002
+    private const float RewardBlockSuccess      =  0.4f;
+    private const float RewardDodgeSuccess      =  0.3f;
+    private const float RewardCounterAttack     =  0.5f;
+    private const float PenaltyHit              = -0.3f;
+    private const float PenaltyCooldownWaste    = -0.005f;  // v2: -0.05 → -0.005 (탐색 억제 해소)
+    private const float RewardDefensiveAttempt  =  0.02f;   // v2: 상대 공격 중 Block/Dodge 시도 장려
 
     // V3: Zone-based distance rewards (BT Kill Zone 1.4~1.7f 전략 반영)
     private const float KillZoneMin       = 1.4f;
@@ -253,6 +254,13 @@ public class StudentCombatAgent : Agent
             AddReward(PenaltyCooldownWaste);
         if (combatAction == 3 && !cooldownSystem.IsAttackReady())
             AddReward(PenaltyCooldownWaste);
+
+        // v2: 상대 공격 중 Block/Dodge 시도 장려 (준비 상태일 때만) — 탐색 유도
+        bool oppIsAttacking = opponent.ActionController.IsAttacking;
+        if (oppIsAttacking && combatAction == 1 && cooldownSystem.IsBlockReady())
+            AddReward(RewardDefensiveAttempt);
+        if (oppIsAttacking && combatAction == 2 && cooldownSystem.IsDodgeReady())
+            AddReward(RewardDefensiveAttempt);
 
         // Block/Dodge 직후 반격 시도 소액 보상 (실제 명중은 DetectHPChanges에서 처리)
         if (combatAction == 3 && (_didBlockLastStep || _didDodgeLastStep))

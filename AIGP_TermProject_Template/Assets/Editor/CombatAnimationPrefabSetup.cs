@@ -354,7 +354,7 @@ public static class CombatAnimationPrefabSetup
         CooldownSystem cooldownSystem,
         CombatActionController actionController)
     {
-        StudentCombatAgent studentAgent = GetOrAdd<StudentCombatAgent>(root);
+        DefenderRLAgent_Jinyoung studentAgent = GetOrAdd<DefenderRLAgent_Jinyoung>(root);
         studentAgent.enabled = false;
         SetObject(studentAgent, "self", character);
         SetObject(studentAgent, "opponent", null);
