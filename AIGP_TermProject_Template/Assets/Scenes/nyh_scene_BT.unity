@@ -1896,7 +1896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   self: {fileID: 1048873681}
-  target: {fileID: 0}
+  target: {fileID: 6082262751175829137}
   actionController: {fileID: 1181273218}
   cooldownSystem: {fileID: 1181273217}
   highHpThreshold: 0.6
@@ -2030,7 +2030,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357766172}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 041436df19a5c174a86aa764ae42feb9, type: 3}
   m_Name: 
@@ -2048,7 +2048,7 @@ MonoBehaviour:
   currentMatchStateForInspector: Not Started
   lastWinnerForInspector: 
   currentEpisodeElapsedTimeForInspector: 0
-  timeScale: 1
+  timeScale: 5
   restoreTimeScaleOnEnd: 1
   adjustFixedDeltaTimeWithTimeScale: 0
   resetEpisodeByLogger: 1
@@ -3415,7 +3415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1765633739275492742, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
       propertyPath: attackDamage
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1895096263345252756, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
       propertyPath: m_Name
