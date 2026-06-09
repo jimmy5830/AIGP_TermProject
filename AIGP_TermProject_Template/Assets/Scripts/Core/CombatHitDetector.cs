@@ -197,11 +197,11 @@ public class CombatHitDetector : MonoBehaviour
 
     private bool ShouldSuppressCombatDebug()
     {
-        StudentCombatAgent[] agents = FindObjectsByType<StudentCombatAgent>(
+        DefenderRLAgent_Jinyoung[] agents = FindObjectsByType<DefenderRLAgent_Jinyoung>(
             FindObjectsInactive.Exclude,
             FindObjectsSortMode.None);
 
-        foreach (StudentCombatAgent agent in agents)
+        foreach (DefenderRLAgent_Jinyoung agent in agents)
         {
             if (agent.enabled)
             {
