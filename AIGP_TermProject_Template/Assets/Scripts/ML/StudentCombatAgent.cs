@@ -12,6 +12,7 @@ public class StudentCombatAgent : Agent
     public CombatCharacter opponent;
     public CombatActionController actionController;
     public CooldownSystem cooldownSystem;
+    public CooldownSystem opponentCooldownSystem;
     public EpisodeManager episodeManager;
 
     // Branch 0: movement (0=stop / 1=forward / 2=back / 3=left / 4=right)
@@ -28,7 +29,19 @@ public class StudentCombatAgent : Agent
     private const float RewardCounterAttack  =  0.5f;
     private const float PenaltyHit           = -0.3f;
     private const float PenaltyCooldownWaste = -0.05f;
-    private const float PenaltyTooClose      = -0.01f;
+
+    // V3: Zone-based distance rewards (BT Kill Zone 1.4~1.7f 전략 반영)
+    private const float KillZoneMin       = 1.4f;
+    private const float KillZoneMax       = 1.7f;
+    private const float EnemyZoneMax      = 1.2f;
+    private const float RewardKillZone    =  0.005f;  // Kill Zone 유지 소액 보상
+    private const float PenaltyEnemyZone  = -0.02f;   // Enemy Zone 강제 이탈 페널티
+
+    // V3: Poke & Retreat 시퀀스 보상 (BT Phase 1·2 핵심 패턴)
+    private const float RewardPokeRetreat =  0.15f;
+
+    // V3: Finisher 모드 — 양쪽 HP<30%일 때 반격 추가 보상 (BT Phase 3 예외)
+    private const float RewardFinisher    =  0.3f;
 
     // Episode end rewards
     private const float RewardWin            =  1.0f;
@@ -37,9 +50,9 @@ public class StudentCombatAgent : Agent
 
     private bool  _didBlockLastStep;
     private bool  _didDodgeLastStep;
+    private bool  _didAttackLastStep;  // V3: Poke & Retreat 추적
     private float _prevSelfHP;
     private float _prevTargetHP;
-    private const float SafeDistance = 1.5f;
 
     // Block/Dodge 성공 감지용 — 상대 공격 종료 시점 단발 평가
     private bool _prevOpponentWasAttacking;
@@ -61,6 +74,7 @@ public class StudentCombatAgent : Agent
     {
         _didBlockLastStep         = false;
         _didDodgeLastStep         = false;
+        _didAttackLastStep        = false;
         _prevOpponentWasAttacking = false;
         _wasBlockingDuringAttack  = false;
         _wasDodgingDuringAttack   = false;
@@ -106,6 +120,12 @@ public class StudentCombatAgent : Agent
 
         // [11] 내가 무적(Dodge) 중인지 — 중복 Dodge 방지
         sensor.AddObservation(actionController.IsInvincible ? 1f : 0f);
+
+        // [12] 상대 공격 쿨타임 진행률 — Phase 3: 쿨다운 중에만 공격 타이밍 학습
+        float oppAtkCooldown = opponentCooldownSystem != null
+            ? opponentCooldownSystem.GetAttackCooldownRatio()
+            : 0f;
+        sensor.AddObservation(oppAtkCooldown);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -179,7 +199,12 @@ public class StudentCombatAgent : Agent
             AddReward(PenaltyHit);
 
         if (targetHPDecreased && (_didBlockLastStep || _didDodgeLastStep))
+        {
             AddReward(RewardCounterAttack);
+            // V3: Finisher 모드 — 양쪽 HP<30%일 때 추가 보상 (BT Phase 3 예외)
+            if (self.CurrentHealthRatio < 0.3f && opponent.CurrentHealthRatio < 0.3f)
+                AddReward(RewardFinisher);
+        }
 
         // 상대 공격 진행 중: 내 상태 누적 기록
         if (opponentIsAttacking)
@@ -214,10 +239,12 @@ public class StudentCombatAgent : Agent
         // 생존 보상 (매 step)
         AddReward(RewardSurvivePerStep);
 
-        // 위험 근접 페널티
+        // V3: 3-Zone 거리 보상 (Kill Zone 유지 유도)
         float dist = Vector3.Distance(transform.position, opponent.transform.position);
-        if (dist < SafeDistance)
-            AddReward(PenaltyTooClose);
+        if (dist >= KillZoneMin && dist <= KillZoneMax)
+            AddReward(RewardKillZone);       // Kill Zone 유지 소액 보상
+        else if (dist < EnemyZoneMax)
+            AddReward(PenaltyEnemyZone);     // Enemy Zone 강제 이탈 페널티
 
         // 쿨타임 중 헛동작 페널티
         if (combatAction == 1 && !cooldownSystem.IsBlockReady())
@@ -231,9 +258,14 @@ public class StudentCombatAgent : Agent
         if (combatAction == 3 && (_didBlockLastStep || _didDodgeLastStep))
             AddReward(0.1f);
 
-        // 이전 step 상태 갱신 (다음 step에서 반격 판단에 사용)
-        _didBlockLastStep = actionController.IsBlocking;
-        _didDodgeLastStep = actionController.IsInvincible;
+        // V3: Poke & Retreat — 공격 직후 Dodge 시퀀스 보상 (BT Phase 1·2 핵심 패턴)
+        if (combatAction == 2 && _didAttackLastStep && cooldownSystem.IsDodgeReady())
+            AddReward(RewardPokeRetreat);
+
+        // 이전 step 상태 갱신
+        _didBlockLastStep  = actionController.IsBlocking;
+        _didDodgeLastStep  = actionController.IsInvincible;
+        _didAttackLastStep = (combatAction == 3 && cooldownSystem.IsAttackReady());
     }
 
     private Vector3 DirectionToTarget()
@@ -256,5 +288,8 @@ public class StudentCombatAgent : Agent
 
         if (episodeManager == null)
             episodeManager = FindFirstObjectByType<EpisodeManager>();
+
+        if (opponentCooldownSystem == null && opponent != null)
+            opponentCooldownSystem = opponent.GetComponent<CooldownSystem>();
     }
 }
