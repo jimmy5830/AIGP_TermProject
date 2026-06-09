@@ -1,17 +1,25 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Unity Project\\AIGP_TermProject\\AIGP_TermProject_Template\\",
+  "WorkspaceRootPath": "C:\\Unity Project\\AIGP_TermProject\\AIGP_TermProject_Template\\AIGP_TermProject_Template\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E61A6B08-0156-FEC3-73CA-5978324CCD5F}|Assembly-CSharp.csproj|c:\\unity project\\aigp_termproject\\aigp_termproject_template\\assets\\scripts\\core\\newemptycsharpscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E61A6B08-0156-FEC3-73CA-5978324CCD5F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\core\\newemptycsharpscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E61A6B08-0156-FEC3-73CA-5978324CCD5F}|Assembly-CSharp.csproj|c:\\unity project\\aigp_termproject\\aigp_termproject_template\\aigp_termproject_template\\assets\\scripts\\combatcsvlogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E61A6B08-0156-FEC3-73CA-5978324CCD5F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\combatcsvlogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E61A6B08-0156-FEC3-73CA-5978324CCD5F}|Assembly-CSharp.csproj|c:\\unity project\\aigp_termproject\\aigp_termproject_template\\assets\\scripts\\ml\\defenderrlagentcbs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E61A6B08-0156-FEC3-73CA-5978324CCD5F}|Assembly-CSharp.csproj|c:\\unity project\\aigp_termproject\\aigp_termproject_template\\aigp_termproject_template\\assets\\scripts\\analysis\\combatcsvlogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E61A6B08-0156-FEC3-73CA-5978324CCD5F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\analysis\\combatcsvlogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E61A6B08-0156-FEC3-73CA-5978324CCD5F}|Assembly-CSharp.csproj|C:\\Unity Project\\AIGP_TermProject\\AIGP_TermProject_Template\\AIGP_TermProject_Template\\assets\\scripts\\ml\\defenderrlagentcbs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E61A6B08-0156-FEC3-73CA-5978324CCD5F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ml\\defenderrlagentcbs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E61A6B08-0156-FEC3-73CA-5978324CCD5F}|Assembly-CSharp.csproj|C:\\Unity Project\\AIGP_TermProject\\AIGP_TermProject_Template\\assets\\scripts\\ml\\studentcombatagent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E61A6B08-0156-FEC3-73CA-5978324CCD5F}|Assembly-CSharp.csproj|C:\\Unity Project\\AIGP_TermProject\\AIGP_TermProject_Template\\AIGP_TermProject_Template\\assets\\scripts\\core\\camerafollowswitcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E61A6B08-0156-FEC3-73CA-5978324CCD5F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\core\\camerafollowswitcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E61A6B08-0156-FEC3-73CA-5978324CCD5F}|Assembly-CSharp.csproj|C:\\Unity Project\\AIGP_TermProject\\AIGP_TermProject_Template\\AIGP_TermProject_Template\\assets\\scripts\\ml\\studentcombatagent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E61A6B08-0156-FEC3-73CA-5978324CCD5F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ml\\studentcombatagent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -27,36 +35,60 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "NewEmptyCSharpScript.cs",
-              "DocumentMoniker": "C:\\Unity Project\\AIGP_TermProject\\AIGP_TermProject_Template\\Assets\\Scripts\\Core\\NewEmptyCSharpScript.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\NewEmptyCSharpScript.cs",
-              "ToolTip": "C:\\Unity Project\\AIGP_TermProject\\AIGP_TermProject_Template\\Assets\\Scripts\\Core\\NewEmptyCSharpScript.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Core\\NewEmptyCSharpScript.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAANAAAAAAAAAA==",
+              "Title": "CombatCSVLogger.cs",
+              "DocumentMoniker": "C:\\Unity Project\\AIGP_TermProject\\AIGP_TermProject_Template\\AIGP_TermProject_Template\\Assets\\Scripts\\CombatCSVLogger.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CombatCSVLogger.cs",
+              "ToolTip": "C:\\Unity Project\\AIGP_TermProject\\AIGP_TermProject_Template\\AIGP_TermProject_Template\\Assets\\Scripts\\CombatCSVLogger.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CombatCSVLogger.cs",
+              "ViewState": "AgIAAIsAAAAAAAAAAAAAAJwAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-02T01:05:05.821Z",
+              "WhenOpened": "2026-06-09T10:52:49.907Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "DefenderRLAgentCBS.cs",
-              "DocumentMoniker": "C:\\Unity Project\\AIGP_TermProject\\AIGP_TermProject_Template\\Assets\\Scripts\\ML\\DefenderRLAgentCBS.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ML\\DefenderRLAgentCBS.cs",
-              "ToolTip": "C:\\Unity Project\\AIGP_TermProject\\AIGP_TermProject_Template\\Assets\\Scripts\\ML\\DefenderRLAgentCBS.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ML\\DefenderRLAgentCBS.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAADwvxoAAAAkAAAAAAAAAA==",
+              "Title": "CombatCSVLogger.cs",
+              "DocumentMoniker": "C:\\Unity Project\\AIGP_TermProject\\AIGP_TermProject_Template\\AIGP_TermProject_Template\\Assets\\Scripts\\Analysis\\CombatCSVLogger.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Analysis\\CombatCSVLogger.cs",
+              "ToolTip": "C:\\Unity Project\\AIGP_TermProject\\AIGP_TermProject_Template\\AIGP_TermProject_Template\\Assets\\Scripts\\Analysis\\CombatCSVLogger.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Analysis\\CombatCSVLogger.cs",
+              "ViewState": "AgIAACcDAAAAAAAAAADwv0kDAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-01T11:25:01.863Z",
+              "WhenOpened": "2026-06-08T16:24:41.488Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CameraFollowSwitcher.cs",
+              "DocumentMoniker": "C:\\Unity Project\\AIGP_TermProject\\AIGP_TermProject_Template\\AIGP_TermProject_Template\\Assets\\Scripts\\Core\\CameraFollowSwitcher.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\CameraFollowSwitcher.cs",
+              "ToolTip": "C:\\Unity Project\\AIGP_TermProject\\AIGP_TermProject_Template\\AIGP_TermProject_Template\\Assets\\Scripts\\Core\\CameraFollowSwitcher.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Core\\CameraFollowSwitcher.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-02T01:05:47.135Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "DefenderRLAgentCBS.cs",
+              "DocumentMoniker": "C:\\Unity Project\\AIGP_TermProject\\AIGP_TermProject_Template\\AIGP_TermProject_Template\\Assets\\Scripts\\ML\\DefenderRLAgentCBS.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ML\\DefenderRLAgentCBS.cs",
+              "ToolTip": "C:\\Unity Project\\AIGP_TermProject\\AIGP_TermProject_Template\\AIGP_TermProject_Template\\Assets\\Scripts\\ML\\DefenderRLAgentCBS.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ML\\DefenderRLAgentCBS.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIMCAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T11:25:01.863Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "StudentCombatAgent.cs",
-              "DocumentMoniker": "C:\\Unity Project\\AIGP_TermProject\\AIGP_TermProject_Template\\Assets\\Scripts\\ML\\StudentCombatAgent.cs",
+              "DocumentMoniker": "C:\\Unity Project\\AIGP_TermProject\\AIGP_TermProject_Template\\AIGP_TermProject_Template\\Assets\\Scripts\\ML\\StudentCombatAgent.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ML\\StudentCombatAgent.cs",
-              "ToolTip": "C:\\Unity Project\\AIGP_TermProject\\AIGP_TermProject_Template\\Assets\\Scripts\\ML\\StudentCombatAgent.cs",
+              "ToolTip": "C:\\Unity Project\\AIGP_TermProject\\AIGP_TermProject_Template\\AIGP_TermProject_Template\\Assets\\Scripts\\ML\\StudentCombatAgent.cs",
               "RelativeToolTip": "Assets\\Scripts\\ML\\StudentCombatAgent.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAADwvzoAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
