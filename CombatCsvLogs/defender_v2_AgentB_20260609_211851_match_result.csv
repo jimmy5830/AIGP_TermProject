@@ -1,0 +1,2 @@
+﻿row_type,session_id,run_id,agent_type,analyze_target,episode,winner,result_for_analyzed,duration_sec,agent_a_final_hp,agent_b_final_hp,attack_count,block_count,dodge_count,move_toward_count,move_back_count,move_side_count,total_action_count,attack_ratio_percent,block_ratio_percent,dodge_ratio_percent,move_toward_ratio_percent,move_back_ratio_percent,move_side_ratio_percent
+"EPISODE","20260609_211851","defender_v2","RL","AgentB",1,"A","loss",22.350,20.000,0.000,8,8,4,27,27,11,85,9.412,9.412,4.706,31.765,31.765,12.941
