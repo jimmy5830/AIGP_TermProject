@@ -333,6 +333,7 @@ public class Defense_StudentBTStrategy : MonoBehaviour
     {
         return new SelectorNode(
             new SequenceNode(
+                new ConditionNode(() => _EZdodgeTimer <= 0f),
                 new ConditionNode(() => cooldownSystem != null && cooldownSystem.IsDodgeReady()),
                 new ActionNode(DoDodgeBack)
             ),
@@ -459,7 +460,7 @@ public class Defense_StudentBTStrategy : MonoBehaviour
 
         return new SelectorNode(
             defenseResponse,
-            new SequenceNode(new ConditionNode(InEnemyZone), new ConditionNode(()=> _EZdodgeTimer <=0f), BuildEnemyZoneEscapeWithDodge()),
+            new SequenceNode(new ConditionNode(InEnemyZone), BuildEnemyZoneEscapeWithDodge()),
             new SequenceNode(new ConditionNode(InKillZone),  BuildStandardKillZoneAction()),
             new ActionNode(DoApproachKillZone)
         );
