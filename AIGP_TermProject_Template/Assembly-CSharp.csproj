@@ -82,6 +82,8 @@
     <Compile Include="Assets\Scripts\BT\BaselineAttackerBT.cs" />
     <Compile Include="Assets\Scripts\BT\ConditionNode.cs" />
     <Compile Include="Assets\Scripts\Core\EpisodeManager.cs" />
+    <Compile Include="Assets\Scripts\ML\AttackAgentRL.cs" />
+    <Compile Include="Assets\Scripts\StudentTODO\Attack_StudentBTStrategy.cs" />
     <Compile Include="Assets\Scripts\Analysis\CombatCSVLogger.cs" />
     <Compile Include="Assets\Scripts\BT\BTNode.cs" />
     <Compile Include="Assets\Scripts\StudentTODO\Defense_StudentBTStrategy.cs" />
