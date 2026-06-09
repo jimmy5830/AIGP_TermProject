@@ -1,0 +1,56 @@
+{
+    "CombatAgent": {
+        "checkpoints": [
+            {
+                "steps": 49993,
+                "file_path": "results\\attack_rl_v2_4_timeoutfix\\CombatAgent\\CombatAgent-49993.onnx",
+                "reward": -1.1408447461823623,
+                "creation_time": 1780729269.573469,
+                "auxillary_file_paths": [
+                    "results\\attack_rl_v2_4_timeoutfix\\CombatAgent\\CombatAgent-49993.pt"
+                ]
+            },
+            {
+                "steps": 99965,
+                "file_path": "results\\attack_rl_v2_4_timeoutfix\\CombatAgent\\CombatAgent-99965.onnx",
+                "reward": -0.9310574546456337,
+                "creation_time": 1780729928.0996919,
+                "auxillary_file_paths": [
+                    "results\\attack_rl_v2_4_timeoutfix\\CombatAgent\\CombatAgent-99965.pt"
+                ]
+            },
+            {
+                "steps": 149957,
+                "file_path": "results\\attack_rl_v2_4_timeoutfix\\CombatAgent\\CombatAgent-149957.onnx",
+                "reward": -0.974224753677845,
+                "creation_time": 1780730594.4329586,
+                "auxillary_file_paths": [
+                    "results\\attack_rl_v2_4_timeoutfix\\CombatAgent\\CombatAgent-149957.pt"
+                ]
+            },
+            {
+                "steps": 156557,
+                "file_path": "results\\attack_rl_v2_4_timeoutfix\\CombatAgent\\CombatAgent-156557.onnx",
+                "reward": -0.9521588124334812,
+                "creation_time": 1780730692.9354875,
+                "auxillary_file_paths": [
+                    "results\\attack_rl_v2_4_timeoutfix\\CombatAgent\\CombatAgent-156557.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 156557,
+            "file_path": "results\\attack_rl_v2_4_timeoutfix\\CombatAgent.onnx",
+            "reward": -0.9521588124334812,
+            "creation_time": 1780730692.9354875,
+            "auxillary_file_paths": [
+                "results\\attack_rl_v2_4_timeoutfix\\CombatAgent\\CombatAgent-156557.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.1.0",
+        "torch_version": "2.8.0+cpu"
+    }
+}

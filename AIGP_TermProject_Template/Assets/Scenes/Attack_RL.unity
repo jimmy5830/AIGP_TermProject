@@ -647,7 +647,7 @@ Transform:
   m_GameObject: {fileID: 277841198}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1328,7 +1328,7 @@ Transform:
   m_GameObject: {fileID: 738793083}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1618,7 +1618,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 868840365562148866, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 868840365562148866, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1626,7 +1626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 868840365562148866, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.53
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 868840365562148866, guid: dec38366c2ca5144d8418b1b8b8f810d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1962,6 +1962,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1357766173}
   - component: {fileID: 1357766174}
+  - component: {fileID: 1357766175}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1996,12 +1997,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd676f1b793a945488859a6024e0258e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agentA: {fileID: 1475817621}
-  agentB: {fileID: 1958932429}
+  agentA: {fileID: 6082262751175829137}
+  agentB: {fileID: 1048873681}
   spawnPointA: {fileID: 738793084}
   spawnPointB: {fileID: 277841199}
   resetDelay: 1.5
   maxEpisodeTime: 60
+--- !u!114 &1357766175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357766172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e159a69711b01148b9efbdfea61db84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runId: Attack_RL_15_4
+  agentType: RL
+  relativeLogFolder: CombatCsvLogs
+  analyzeTarget: 0
+  targetEpisodeCount: 100
+  countTimeoutAsEpisodeEnd: 1
+  maxEpisodeTime: 60
+  stopPlayModeWhenFinished: 1
+  currentEpisodeForInspector: 0
+  completedEpisodesForInspector: 0
+  currentMatchStateForInspector: Not Started
+  lastWinnerForInspector: 
+  currentEpisodeElapsedTimeForInspector: 0
+  timeScale: 10
+  restoreTimeScaleOnEnd: 1
+  adjustFixedDeltaTimeWithTimeScale: 0
+  resetEpisodeByLogger: 1
+  interEpisodeDelay: 0.2
+  agentA: {fileID: 6082262751175829137}
+  agentB: {fileID: 1048873681}
+  episodeManager: {fileID: 1357766174}
+  movementDistanceThreshold: 0.005
+  distanceChangeThreshold: 0.005
+  dodgeMovementIgnoreSeconds: 0.25
 --- !u!1001 &1417867314
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2489,6 +2526,7 @@ MonoBehaviour:
   opponent: {fileID: 1958932429}
   actionController: {fileID: 1475817619}
   cooldownSystem: {fileID: 1475817620}
+  opponentCooldownSystem: {fileID: 0}
   episodeManager: {fileID: 1357766174}
 --- !u!114 &1475817626
 MonoBehaviour:
@@ -3346,7 +3384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1227068919629312814, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1227068919629312814, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3354,7 +3392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1227068919629312814, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1227068919629312814, guid: aa8891f58e1f068428f4a0a6b7c805c3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3496,9 +3534,13 @@ MonoBehaviour:
   actionController: {fileID: 6082262751175829138}
   cooldownSystem: {fileID: 6082262751175829141}
   episodeManager: {fileID: 1357766174}
+  moveDecisionThreshold: 0.15
   useAttackFallback: 1
   fallbackAttackHitTime: 0.2
   fallbackAttackEndTime: 0.55
+  maxEpisodeSeconds: 30
+  phase1AttackOnly: 1
+  phase1ForwardOnlyMove: 1
 --- !u!114 &6082262751175829143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3521,7 +3563,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: a7fd004f9708246439207ff7489abe8b, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: CombatAgent

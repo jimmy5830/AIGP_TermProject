@@ -1,0 +1,38 @@
+{
+    "CombatAgent": {
+        "checkpoints": [
+            {
+                "steps": 49993,
+                "file_path": "results\\attack_rl_v4_1\\CombatAgent\\CombatAgent-49993.onnx",
+                "reward": -6.9072128385305405,
+                "creation_time": 1780816419.8313756,
+                "auxillary_file_paths": [
+                    "results\\attack_rl_v4_1\\CombatAgent\\CombatAgent-49993.pt"
+                ]
+            },
+            {
+                "steps": 75965,
+                "file_path": "results\\attack_rl_v4_1\\CombatAgent\\CombatAgent-75965.onnx",
+                "reward": -3.765692040324211,
+                "creation_time": 1780816766.6130316,
+                "auxillary_file_paths": [
+                    "results\\attack_rl_v4_1\\CombatAgent\\CombatAgent-75965.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 75965,
+            "file_path": "results\\attack_rl_v4_1\\CombatAgent.onnx",
+            "reward": -3.765692040324211,
+            "creation_time": 1780816766.6130316,
+            "auxillary_file_paths": [
+                "results\\attack_rl_v4_1\\CombatAgent\\CombatAgent-75965.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.1.0",
+        "torch_version": "2.8.0+cpu"
+    }
+}

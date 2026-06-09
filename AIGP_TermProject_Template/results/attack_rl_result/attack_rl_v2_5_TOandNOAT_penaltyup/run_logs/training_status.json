@@ -1,0 +1,65 @@
+{
+    "CombatAgent": {
+        "checkpoints": [
+            {
+                "steps": 99965,
+                "file_path": "results\\attack_rl_v2_5_TOandNOAT_penaltyup\\CombatAgent\\CombatAgent-99965.onnx",
+                "reward": -1.2493272423744202,
+                "creation_time": 1780732636.005214,
+                "auxillary_file_paths": [
+                    "results\\attack_rl_v2_5_TOandNOAT_penaltyup\\CombatAgent\\CombatAgent-99965.pt"
+                ]
+            },
+            {
+                "steps": 149957,
+                "file_path": "results\\attack_rl_v2_5_TOandNOAT_penaltyup\\CombatAgent\\CombatAgent-149957.onnx",
+                "reward": -1.078702027599017,
+                "creation_time": 1780733303.8916426,
+                "auxillary_file_paths": [
+                    "results\\attack_rl_v2_5_TOandNOAT_penaltyup\\CombatAgent\\CombatAgent-149957.pt"
+                ]
+            },
+            {
+                "steps": 199993,
+                "file_path": "results\\attack_rl_v2_5_TOandNOAT_penaltyup\\CombatAgent\\CombatAgent-199993.onnx",
+                "reward": -1.123281329870224,
+                "creation_time": 1780733967.3286257,
+                "auxillary_file_paths": [
+                    "results\\attack_rl_v2_5_TOandNOAT_penaltyup\\CombatAgent\\CombatAgent-199993.pt"
+                ]
+            },
+            {
+                "steps": 249965,
+                "file_path": "results\\attack_rl_v2_5_TOandNOAT_penaltyup\\CombatAgent\\CombatAgent-249965.onnx",
+                "reward": -1.199491173028946,
+                "creation_time": 1780734631.63252,
+                "auxillary_file_paths": [
+                    "results\\attack_rl_v2_5_TOandNOAT_penaltyup\\CombatAgent\\CombatAgent-249965.pt"
+                ]
+            },
+            {
+                "steps": 286501,
+                "file_path": "results\\attack_rl_v2_5_TOandNOAT_penaltyup\\CombatAgent\\CombatAgent-286501.onnx",
+                "reward": -1.1458657048642635,
+                "creation_time": 1780735133.4854667,
+                "auxillary_file_paths": [
+                    "results\\attack_rl_v2_5_TOandNOAT_penaltyup\\CombatAgent\\CombatAgent-286501.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 286501,
+            "file_path": "results\\attack_rl_v2_5_TOandNOAT_penaltyup\\CombatAgent.onnx",
+            "reward": -1.1458657048642635,
+            "creation_time": 1780735133.4854667,
+            "auxillary_file_paths": [
+                "results\\attack_rl_v2_5_TOandNOAT_penaltyup\\CombatAgent\\CombatAgent-286501.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.1.0",
+        "torch_version": "2.8.0+cpu"
+    }
+}

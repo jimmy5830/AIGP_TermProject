@@ -26,3 +26,6 @@ venv310
 *.user
 *.userosscache
 *.sln.docstates
+
+AIGP_TermProject_Template/Assembly-CSharp-Editor.csproj
+AIGP_TermProject_Template/Assembly-CSharp.csproj
