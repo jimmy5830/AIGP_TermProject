@@ -11,7 +11,7 @@ public class Attack_StudentBTStrategy : MonoBehaviour
     [SerializeField] private float attackDistance = 1.4f;
     [SerializeField] private float closeDistance = 1.8f;
     [SerializeField] private float facingAngle = 60f;
-    [SerializeField] private float lowHealthRatio = 0.25f;
+    [SerializeField] private float lowHealthRatio = 0.50f;
 
     // 좌우 이동 방향을 일정 시간 유지하여 매 프레임 방향이 바뀌는 흔들림을 줄입니다.
     [SerializeField] private float strafeChangeInterval = 0.8f;
